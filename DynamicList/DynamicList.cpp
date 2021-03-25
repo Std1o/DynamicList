@@ -46,10 +46,10 @@ int main(void) {
 	showList(ls);
 
 	delete_first_negative_value(&ls, ls.head);
-
 	cout << endl << "After deleting first nagative value: ";
 	showList(ls);
 
+	//moving the maximum value to the end of the list
 	push_back(&ls, removeMaxValue(&ls));
 	showList(ls);
 
@@ -84,7 +84,7 @@ double removeMaxValue(slist* ls) {
 		i++;
 	}
 	remove(ls, findeNode(ls->head, maxValPos));
-	cout << endl << "max: " << maxVal << endl << "После перемещения: ";
+	cout << endl << "Max value: " << maxVal << endl << "After moving: ";
 	return maxVal;
 }
 
