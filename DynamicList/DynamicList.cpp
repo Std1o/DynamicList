@@ -32,10 +32,17 @@ int main(void) {
 	setlocale(LC_ALL, "RUS");
 	node* p;
 	slist ls;
-	createList(&ls, 3);
+
+	cout << "Element count: ";
+	int count = 0;
+	cin >> count;
+	createList(&ls, count);
 	showList(ls);
 
-	push_2_items_before_last(&ls, 88, 99);
+	double item1 = 0, item2 = 0;
+	cout << "Enter 2 items: ";
+	cin >> item1 >> item2;
+	push_2_items_before_last(&ls, item1, item2);
 	showList(ls);
 
 	delete_first_negative_value(&ls, ls.head);
