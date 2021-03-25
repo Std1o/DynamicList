@@ -1,6 +1,4 @@
 ﻿#include <iostream>
-#include <sstream>
-#include <fstream>
 
 struct node {
 	node* next;
@@ -22,9 +20,9 @@ node* remove(slist* ls, node* p);
 node *findeNode(node *L, int p);
 void push_2_items_before_last(slist* ls, double val1, double val2);
 void delete_first_negative_value(slist* ls, node* p);
-double removeMaxValue(slist* ls);
-void showList(slist ls);
-void createList(slist* ls, int n);
+double remove_max_value(slist* ls);
+void show_list(slist ls);
+void create_list(slist* ls, int n);
 
 using namespace std;
 
@@ -36,28 +34,29 @@ int main(void) {
 	cout << "Element count: ";
 	int count = 0;
 	cin >> count;
-	createList(&ls, count);
-	showList(ls);
+	cout << "Enter " << count << " items:\n";
+	create_list(&ls, count);
+	show_list(ls);
 
 	double item1 = 0, item2 = 0;
-	cout << "Enter 2 items: ";
+	cout << "Enter 2 items:\n";
 	cin >> item1 >> item2;
 	push_2_items_before_last(&ls, item1, item2);
-	showList(ls);
+	show_list(ls);
 
 	delete_first_negative_value(&ls, ls.head);
 	cout << endl << "After deleting first nagative value: ";
-	showList(ls);
+	show_list(ls);
 
 	//moving the maximum value to the end of the list
-	push_back(&ls, removeMaxValue(&ls));
-	showList(ls);
+	push_back(&ls, remove_max_value(&ls));
+	show_list(ls);
 
 	cin.get();
 	return 0;
 }
 
-void createList(slist* ls, int n) {
+void create_list(slist* ls, int n) {
 	init_list(ls);
 	double val = 0;
 	for (int i = 0; i < n; i++) {
@@ -66,13 +65,14 @@ void createList(slist* ls, int n) {
 	}
 }
 
-void showList(slist ls) {
+void show_list(slist ls) {
+	cout << "Current list: ";
 	for (node* p = ls.head; p != NULL; p = p->next)
 		cout << p->val << ' ';
 	cout << endl << "Size = " << ls.size << endl;
 }
 
-double removeMaxValue(slist* ls) {
+double remove_max_value(slist* ls) {
 	double maxVal = ls->head->val;
 	int maxValPos = 0;
 	int i = 0;
@@ -84,7 +84,7 @@ double removeMaxValue(slist* ls) {
 		i++;
 	}
 	remove(ls, findeNode(ls->head, maxValPos));
-	cout << endl << "Max value: " << maxVal << endl << "After moving: ";
+	cout << endl << "Max value: " << maxVal << endl << "After moving:\n";
 	return maxVal;
 }
 
