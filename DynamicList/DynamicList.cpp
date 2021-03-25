@@ -14,10 +14,10 @@ struct slist {
 	int size = 0;
 };
 
-void  slist_init(slist* ls) { ls->head = ls->tail = NULL; }
-node* slist_push_front(slist* ls, double val);
-node* slist_push_back(slist* ls, double val);
-node* slist_insert(slist* ls, node* p, double val);
+void  init_list(slist* ls) { ls->head = ls->tail = NULL; }
+node* push_front(slist* ls, double val);
+node* push_back(slist* ls, double val);
+node* insert(slist* ls, node* p, double val);
 node* remove(slist* ls, node* p);
 node *findeNode(node *L, int p);
 void push_2_items_before_last(slist* ls, double val1, double val2);
@@ -26,11 +26,11 @@ double removeMaxValue(slist* ls);
 void showList(slist ls);
 
 void createList(slist* ls, int n) {
-	slist_init(ls);
+	init_list(ls);
 	double val = 0;
 	for (int i = 0; i < n; i++) {
 		std::cin >> val;
-		slist_push_front(ls, val);
+		push_front(ls, val);
 	}
 }
 
@@ -56,7 +56,7 @@ int main(void) {
 	std::cout << std::endl << "After deleting first nagative value: ";
 	showList(ls);
 
-	slist_push_back(&ls, removeMaxValue(&ls));
+	push_back(&ls, removeMaxValue(&ls));
 	showList(ls);
 
 	std::cin.get();
@@ -88,8 +88,8 @@ double removeMaxValue(slist* ls) {
 void push_2_items_before_last(slist* ls, double val1, double val2) {
 	node* pos1 = findeNode(ls->head, ls->size - 1);
 	node* pos2 = findeNode(ls->head, ls->size - 1);
-	slist_insert(ls, pos1, val1);
-	slist_insert(ls, pos2, val2);
+	insert(ls, pos1, val1);
+	insert(ls, pos2, val2);
 }
 
 void delete_first_negative_value(slist* ls, node* pos) {
@@ -110,7 +110,7 @@ node *findeNode(node *L, int p) {
 }
 
 //вставка в начало списка
-node* slist_push_front(slist* ls, double val) {
+node* push_front(slist* ls, double val) {
 	node* p = new node(val);
 	if (ls->head == NULL)
 		ls->head = ls->tail = p;
@@ -123,7 +123,7 @@ node* slist_push_front(slist* ls, double val) {
 }
 
 //вставка в конец списка
-node* slist_push_back(slist* ls, double val) {
+node* push_back(slist* ls, double val) {
 	node* p = new node(val);
 	if (ls->head == NULL)
 		ls->head = ls->tail = p;
@@ -136,7 +136,7 @@ node* slist_push_back(slist* ls, double val) {
 }
 
 //вставка в произвольное место
-node* slist_insert(slist* ls, node* pos, double val) {
+node* insert(slist* ls, node* pos, double val) {
 	node* p, *i = ls->head, *j = ls->head;
 	while (i != pos) {
 		j = i;
@@ -144,7 +144,7 @@ node* slist_insert(slist* ls, node* pos, double val) {
 	}
 
 	if (i == ls->head)
-		p = slist_push_front(ls, val);
+		p = push_front(ls, val);
 	else {
 		p = new node(val);
 		j->next = p;
