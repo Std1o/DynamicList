@@ -26,6 +26,8 @@ double removeMaxValue(slist* ls);
 void showList(slist ls);
 void createList(slist* ls, int n);
 
+using namespace std;
+
 int main(void) {
 	setlocale(LC_ALL, "RUS");
 	node* p;
@@ -33,25 +35,18 @@ int main(void) {
 	createList(&ls, 3);
 	showList(ls);
 
-	std::cout << std::endl << "Afer deleting: ";
-	remove(&ls, ls.head);
-	showList(ls);
-
-	std::cout << std::endl << "В позиции 0: " << findeNode(ls.head, 0)->val;
-	std::cout << std::endl << "В позиции 1: " << findeNode(ls.head, 1)->val << std::endl;
-
 	push_2_items_before_last(&ls, 88, 99);
 	showList(ls);
 
 	delete_first_negative_value(&ls, ls.head);
 
-	std::cout << std::endl << "After deleting first nagative value: ";
+	cout << endl << "After deleting first nagative value: ";
 	showList(ls);
 
 	push_back(&ls, removeMaxValue(&ls));
 	showList(ls);
 
-	std::cin.get();
+	cin.get();
 	return 0;
 }
 
@@ -59,15 +54,15 @@ void createList(slist* ls, int n) {
 	init_list(ls);
 	double val = 0;
 	for (int i = 0; i < n; i++) {
-		std::cin >> val;
+		cin >> val;
 		push_front(ls, val);
 	}
 }
 
 void showList(slist ls) {
 	for (node* p = ls.head; p != NULL; p = p->next)
-		std::cout << p->val << ' ';
-	std::cout << std::endl << "Size = " << ls.size;
+		cout << p->val << ' ';
+	cout << endl << "Size = " << ls.size << endl;
 }
 
 double removeMaxValue(slist* ls) {
@@ -82,7 +77,7 @@ double removeMaxValue(slist* ls) {
 		i++;
 	}
 	remove(ls, findeNode(ls->head, maxValPos));
-	std::cout << std::endl << "max: " << maxVal << std::endl << "После перемещения: ";
+	cout << endl << "max: " << maxVal << endl << "После перемещения: ";
 	return maxVal;
 }
 
