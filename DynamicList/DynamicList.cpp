@@ -24,15 +24,7 @@ void push_2_items_before_last(slist* ls, double val1, double val2);
 void delete_first_negative_value(slist* ls, node* p);
 double removeMaxValue(slist* ls);
 void showList(slist ls);
-
-void createList(slist* ls, int n) {
-	init_list(ls);
-	double val = 0;
-	for (int i = 0; i < n; i++) {
-		std::cin >> val;
-		push_front(ls, val);
-	}
-}
+void createList(slist* ls, int n);
 
 int main(void) {
 	setlocale(LC_ALL, "RUS");
@@ -61,6 +53,15 @@ int main(void) {
 
 	std::cin.get();
 	return 0;
+}
+
+void createList(slist* ls, int n) {
+	init_list(ls);
+	double val = 0;
+	for (int i = 0; i < n; i++) {
+		std::cin >> val;
+		push_front(ls, val);
+	}
 }
 
 void showList(slist ls) {
