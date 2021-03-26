@@ -4,7 +4,6 @@ struct node {
 	node* next;
 	double   val;
 	node(double v) :next(NULL), val(v) {}
-	node() :next(NULL), val() {}
 };
 
 struct slist {
@@ -45,7 +44,7 @@ int main(void) {
 	show_list(ls);
 
 	delete_first_negative_value(&ls, ls.head);
-	cout << endl << "After deleting first nagative value: ";
+	cout << endl << "After deleting first nagative value: \n";
 	show_list(ls);
 
 	//moving the maximum value to the end of the list
@@ -69,7 +68,7 @@ void show_list(slist ls) {
 	cout << "Current list: ";
 	for (node* p = ls.head; p != NULL; p = p->next)
 		cout << p->val << ' ';
-	cout << endl << "Size = " << ls.size << endl;
+	cout << endl;
 }
 
 double remove_max_value(slist* ls) {
