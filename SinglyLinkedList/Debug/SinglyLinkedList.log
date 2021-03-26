@@ -1,0 +1,3 @@
+﻿  SinglyLinkedList.cpp
+c:\users\stdio\desktop\singlylinkedlist\singlylinkedlist\singlylinkedlist.cpp(30): warning C4101: p: неиспользованная локальная переменная
+  SinglyLinkedList.vcxproj -> C:\Users\stdio\Desktop\SinglyLinkedList\Debug\SinglyLinkedList.exe

@@ -1,2 +1,0 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (DynamicList.vcxproj).  Это может привести к ошибкам очистки и перестроения.
-  DynamicList.vcxproj -> C:\Users\stdio\Desktop\DynamicList\x64\Debug\SinglyLinkedList.exe
