@@ -30,21 +30,23 @@ int main(void) {
 	node* p;
 	slist ls;
 
-	cout << "Element count: ";
+	cout << "Количество элементов: ";
 	int count = 0;
 	cin >> count;
 	cout << "Enter " << count << " items:\n";
 	create_list(&ls, count);
+	cout << "Исходный список: ";
 	show_list(ls);
 
 	double item1 = 0, item2 = 0;
-	cout << "Enter 2 items:\n";
+	cout << "Введите 2 элемента:\n";
 	cin >> item1 >> item2;
 	push_2_items_before_last(&ls, item1, item2);
+	cout << "После вставки двух новых узлов перед последним узлом: ";
 	show_list(ls);
 
 	delete_first_negative_value(&ls, ls.head);
-	cout << endl << "After deleting first nagative value: \n";
+	cout << endl << "После удаления первого отрицательного числа в списке: ";
 	show_list(ls);
 
 	//moving the maximum value to the end of the list
@@ -65,7 +67,6 @@ void create_list(slist* ls, int n) {
 }
 
 void show_list(slist ls) {
-	cout << "Current list: ";
 	for (node* p = ls.head; p != NULL; p = p->next)
 		cout << p->val << ' ';
 	cout << endl;
@@ -83,7 +84,7 @@ double remove_max_value(slist* ls) {
 		i++;
 	}
 	remove(ls, findNode(ls->head, maxValPos));
-	cout << endl << "Max value: " << maxVal << endl << "After moving:\n";
+	cout << endl << "Максимальное значение: " << maxVal << endl << "После перемещения в конец списка: ";
 	return maxVal;
 }
 
