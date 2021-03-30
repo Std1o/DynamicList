@@ -16,7 +16,7 @@ node* push_front(slist* ls, double val);
 node* push_back(slist* ls, double val);
 node* insert(slist* ls, node* p, double val);
 node* remove(slist* ls, node* p);
-node *findeNode(node *L, int p);
+node *findNode(node *L, int p);
 void push_2_items_before_last(slist* ls, double val1, double val2);
 void delete_first_negative_value(slist* ls, node* p);
 double remove_max_value(slist* ls);
@@ -82,14 +82,14 @@ double remove_max_value(slist* ls) {
 		}
 		i++;
 	}
-	remove(ls, findeNode(ls->head, maxValPos));
+	remove(ls, findNode(ls->head, maxValPos));
 	cout << endl << "Max value: " << maxVal << endl << "After moving:\n";
 	return maxVal;
 }
 
 void push_2_items_before_last(slist* ls, double val1, double val2) {
-	node* pos1 = findeNode(ls->head, ls->size - 1);
-	node* pos2 = findeNode(ls->head, ls->size - 1);
+	node* pos1 = findNode(ls->head, ls->size - 1);
+	node* pos2 = findNode(ls->head, ls->size - 1);
 	insert(ls, pos1, val1);
 	insert(ls, pos2, val2);
 }
@@ -102,7 +102,7 @@ void delete_first_negative_value(slist* ls, node* pos) {
 		}
 }
 
-node *findeNode(node *L, int p) {
+node *findNode(node *L, int p) {
 	int i = 0;
 	node *q = L;
 	while (q != 0 && i < p) {
